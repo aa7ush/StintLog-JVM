@@ -13,7 +13,7 @@ public class TelemetryDashboard extends JFrame {
     private Clip lapBeep;
 
     public TelemetryDashboard() {
-        setTitle("StintLog-JVM");
+        setTitle("Motorsport Telemetry Logger");
         setSize(1450, 400); 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
@@ -23,10 +23,10 @@ public class TelemetryDashboard extends JFrame {
 
         dataLabel = new JLabel(" LAP: 1 | SEC: 1 | DIST: 0m | TIME: 0:00.000 | LAST: 0:00.000 | BEST: 0:00.000 | SPD: 0 km/h | THR: 0% | BRK: 0% ", SwingConstants.CENTER);
         dataLabel.setFont(new Font("Monospaced", Font.BOLD, 18));
-        dataLabel.setForeground(Color.BLACK);
-        dataLabel.setBackground(Color.WHITE);
+        dataLabel.setForeground(new Color(0, 255, 102)); // High-contrast telemetry green
+        dataLabel.setBackground(new Color(20, 20, 20));  // Dark charcoal panel
         dataLabel.setOpaque(true);
-        dataLabel.setBorder(BorderFactory.createMatteBorder(1, 0, 0, 0, Color.LIGHT_GRAY));
+        dataLabel.setBorder(BorderFactory.createMatteBorder(1, 0, 0, 0, new Color(60, 60, 60)));
         add(dataLabel, BorderLayout.SOUTH);
 
         sectorBeep = createBeepClip(800, 500);

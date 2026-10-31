@@ -1,0 +1,28 @@
+name: Java CI Build
+
+# 1. Event: Trigger on every push or pull request to main
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+# 2. Jobs: Define the tasks to run
+jobs:
+  build:
+    # 3. Runner: Spin up an Ubuntu Linux virtual machine
+    runs-on: ubuntu-latest
+
+    # 4. Steps: Execute actions and shell commands in order
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Compile StintLog-JVM source files
+        run: javac *.java
